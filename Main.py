@@ -3,7 +3,8 @@ from Binary import to_binary, to_int
 
 Compiler.load_file("blueprints")
 
-Compiler.compile("""DEFINE HALF_ADDER A B
+Compiler.compile(
+    """DEFINE HALF_ADDER A B
 SET S TO XOR A B
 SET C TO AND A B
 DEL A B
@@ -28,10 +29,32 @@ SET S4 S3 TO FULL_ADDER A3 B3 C
 DEL A3 B3 C
 ORDER S4 S3 S2 S1 S0
 GAP
-END""")
+END"""
+)
 
-def add(a:int, b:int) -> int:
-	return to_int(Compiler.run(to_binary(a, length = 4)[0:5] + to_binary(b, length = 4)[0:5], 10, {" ":"#fff", "1":"#0f0","2":"#00f","3":"#f00","4":"#f0f","5":"#ff0","6":"#bde", "7":"#0ff","8":"#a2f"}, "#000", wait = 0.01, jump = 1))
+
+def add(a: int, b: int) -> int:
+    return to_int(
+        Compiler.run(
+            to_binary(a, length=4)[0:5] + to_binary(b, length=4)[0:5],
+            10,
+            {
+                " ": "#fff",
+                "1": "#0f0",
+                "2": "#00f",
+                "3": "#f00",
+                "4": "#f0f",
+                "5": "#ff0",
+                "6": "#bde",
+                "7": "#0ff",
+                "8": "#a2f",
+            },
+            "#000",
+            wait=0.01,
+            jump=1,
+        )
+    )
+
 
 while True:
-	print(add(int(input("Number 1: ")), int(input("Number 2: "))))
+    print(add(int(input("Number 1: ")), int(input("Number 2: "))))
