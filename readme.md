@@ -1,14 +1,13 @@
-### A program that turns the Flea cellular automaton into a system of logic gates.
+A program that uses a cellular automaton-like model to create logic gates, that can then be combined form an expandable binary adder, and can be further expanded to perform more complex computations - maybe even a full computer!
 
-#### To run:
+![screenshot of running binary adder](images/screenshot2.png)
+
+To run:
 1. run `python3 Main.py`
 2. type in two integers between 0 and 15 inclusive
 3. watch as the system adds the numbers
 
-![screenshot of running binary adder](images/screenshot2.png)
-
-
-#### Flea works as follows:
+Flea works as follows:
 1. you have some number of fleas moving around on the cells of an infinite 2D grid.
 2. each flea is facing a direction, and each cell is a color.
 3. There is a ruleset, which maps each color to a pair of (color, angle).
@@ -16,7 +15,7 @@
 5. repeat.
 6. If 2 fleas are on top of each other, one will see the original color and move according to that, and the next flea will see the color that the first flea painted.
 
-#### Notes:
+Notes:
 This isn't exactly a cellular automaton, but it's close.
 
 `Board.py`, `Util.py`, and `Flea.py` simulate the Flea system.
